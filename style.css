@@ -1,4 +1,50 @@
 /* ═══════════════════════════════════════════
+   POLICES LOCALES
+═══════════════════════════════════════════ */
+@font-face {
+  font-family: 'Luckiest Guy';
+  src: url('fonts/LuckiestGuy.ttf') format('truetype');
+  font-weight: 400;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Baloo 2';
+  src: url('fonts/Baloo2-Regular.ttf') format('truetype');
+  font-weight: 400;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Baloo 2';
+  src: url('fonts/Baloo2-Bold.ttf') format('truetype');
+  font-weight: 700;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Poppins';
+  src: url('fonts/Poppins-Regular.ttf') format('truetype');
+  font-weight: 400;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Poppins';
+  src: url('fonts/Poppins-SemiBold.ttf') format('truetype');
+  font-weight: 600;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Open Sauce One';
+  src: url('fonts/OpenSauceOne-Regular.ttf') format('truetype');
+  font-weight: 400;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Open Sauce One';
+  src: url('fonts/OpenSauceOne-Bold.ttf') format('truetype');
+  font-weight: 700;
+  font-display: swap;
+}
+
+/* ═══════════════════════════════════════════
    RESET & BASE
 ═══════════════════════════════════════════ */
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
@@ -20,6 +66,7 @@
 
   --font-title:    'Luckiest Guy', cursive;
   --font-h2:       'Baloo 2', cursive;
+  --font-subtitle: 'Open Sauce One', sans-serif;
   --font-body:     'Poppins', sans-serif;
 }
 
