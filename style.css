@@ -274,8 +274,16 @@ a { text-decoration: none; color: inherit; }
 .section-blob-deco {
   position: absolute;
   top: -40px; right: -40px;
-  width: 320px;
+  width: 380px;
   pointer-events: none;
+  overflow: visible;
+}
+.section-blob-vision {
+  top: auto;
+  bottom: -60px;
+  left: -60px;
+  right: auto;
+  width: 320px;
 }
 
 .coquille-grid {
