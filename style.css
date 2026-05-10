@@ -215,13 +215,18 @@ a { text-decoration: none; color: inherit; }
   background: var(--bg);
 }
 
-.blobs-bg {
+/* formes organiques PNG */
+.forme {
   position: absolute;
-  inset: 0;
-  width: 100%;
-  height: 100%;
   pointer-events: none;
+  user-select: none;
 }
+.forme-1 { width: 420px; top: -60px;  left: -80px;  opacity: .9; }
+.forme-2 { width: 280px; top: 40px;   right: 60px;  opacity: .85; }
+.forme-3 { width: 340px; bottom: -40px; right: -60px; opacity: .9; transform: rotate(20deg); }
+.forme-4 { width: 260px; bottom: 60px; left: 60px;   opacity: .8; transform: rotate(-10deg); }
+.forme-5 { width: 300px; top: 200px;  left: 35%;    opacity: .6; transform: rotate(5deg); }
+.forme-6 { width: 200px; top: -20px;  left: 42%;    opacity: .7; transform: rotate(-15deg); }
 
 .hero-content {
   position: relative;
