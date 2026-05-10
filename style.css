@@ -221,12 +221,18 @@ a { text-decoration: none; color: inherit; }
   pointer-events: none;
   user-select: none;
 }
-.forme-1 { width: 420px; top: -60px;  left: -80px;  opacity: .9; }
-.forme-2 { width: 280px; top: 40px;   right: 60px;  opacity: .85; }
-.forme-3 { width: 340px; bottom: -40px; right: -60px; opacity: .9; transform: rotate(20deg); }
-.forme-4 { width: 260px; bottom: 60px; left: 60px;   opacity: .8; transform: rotate(-10deg); }
-.forme-5 { width: 300px; top: 200px;  left: 35%;    opacity: .6; transform: rotate(5deg); }
-.forme-6 { width: 200px; top: -20px;  left: 42%;    opacity: .7; transform: rotate(-15deg); }
+/* jaune multi-bulles — grand, coin haut gauche */
+.forme-1 { width: 380px; top: -40px;   left: -60px;  opacity: .92; }
+/* mauve — coin haut droite */
+.forme-2 { width: 240px; top: -20px;   right: -30px; opacity: .85; }
+/* orange — bas droite */
+.forme-3 { width: 300px; bottom: -60px; right: -50px; opacity: .9; transform: rotate(15deg); }
+/* vert clair — bas gauche */
+.forme-4 { width: 280px; bottom: -50px; left: 80px;  opacity: .82; transform: rotate(-8deg); }
+/* orange clair — centre haut */
+.forme-5 { width: 260px; top: 20px;    left: 38%;   opacity: .65; }
+/* vert foncé — milieu droite */
+.forme-6 { width: 200px; top: 45%;     right: 200px; opacity: .7; transform: rotate(-20deg); }
 
 .hero-content {
   position: relative;
@@ -234,18 +240,21 @@ a { text-decoration: none; color: inherit; }
   display: flex;
   flex-direction: row;
   align-items: center;
-  gap: 4rem;
+  gap: 5rem;
   width: 100%;
   max-width: 1100px;
-  padding: 3rem 4rem;
+  padding: 2rem 5vw;
 }
 
 .hero-left {
   flex: 0 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .hero-logo-img {
-  width: clamp(200px, 28vw, 380px);
+  width: clamp(240px, 30vw, 420px);
   height: auto;
   filter: drop-shadow(4px 6px 0px rgba(0,0,0,0.15));
 }
@@ -255,12 +264,12 @@ a { text-decoration: none; color: inherit; }
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-  gap: 1.8rem;
+  gap: 2rem;
 }
 
 .hero-sub {
   font-family: var(--font-subtitle);
-  font-size: clamp(1rem, 1.8vw, 1.3rem);
+  font-size: clamp(1.1rem, 1.8vw, 1.4rem);
   font-weight: 700;
   line-height: 1.65;
   color: var(--dark);
