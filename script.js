@@ -47,40 +47,6 @@ document.addEventListener('keydown', e => {
   if (e.key === 'Escape') lightbox.classList.remove('open');
 });
 
-// lecteur audio
-const audio    = document.getElementById('histoire-audio');
-const playBtn  = document.getElementById('audio-play-btn');
-const progress = document.getElementById('audio-progress');
-const timeEl   = document.getElementById('audio-time');
-
-if (audio && playBtn) {
-  playBtn.addEventListener('click', () => {
-    if (audio.paused) { audio.play(); playBtn.textContent = '⏸'; }
-    else              { audio.pause(); playBtn.textContent = '▶'; }
-  });
-
-  audio.addEventListener('timeupdate', () => {
-    if (!audio.duration) return;
-    const pct = (audio.currentTime / audio.duration) * 100;
-    progress.style.width = pct + '%';
-    const m = Math.floor(audio.currentTime / 60);
-    const s = Math.floor(audio.currentTime % 60).toString().padStart(2,'0');
-    timeEl.textContent = `${m}:${s}`;
-  });
-
-  audio.addEventListener('ended', () => {
-    playBtn.textContent = '▶';
-    progress.style.width = '0%';
-    timeEl.textContent = '0:00';
-  });
-
-  document.getElementById('audio-progress-wrap') &&
-  document.querySelector('.audio-progress-wrap').addEventListener('click', e => {
-    const rect = e.currentTarget.getBoundingClientRect();
-    audio.currentTime = ((e.clientX - rect.left) / rect.width) * audio.duration;
-  });
-}
-
 // event delegation sur le document entier
 document.addEventListener('click', e => {
   const img = e.target.closest('.box-content-item img') || (e.target.tagName === 'IMG' && e.target.closest('.box-content-item') ? e.target : null);
