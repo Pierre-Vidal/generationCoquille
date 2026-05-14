@@ -350,10 +350,16 @@ a { text-decoration: none; color: inherit; }
 .item-qr .fleche { width: 70px; transform: rotate(170deg); margin-bottom: -8px; }
 .item-qr img:nth-child(2) { width: 80px; }
 
-/* coloriage label bas gauche */
+/* coloriage bas gauche */
 .item-coloriage {
-  bottom: 120px; left: 10px;
+  bottom: 80px; left: 0;
+  width: 160px;
   z-index: 3;
+}
+.item-coloriage img {
+  width: 100%;
+  transform: rotate(-3deg);
+  box-shadow: 3px 3px 10px rgba(0,0,0,.15);
 }
 
 /* labels style charte */
