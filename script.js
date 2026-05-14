@@ -35,3 +35,23 @@ const observer = new IntersectionObserver(entries => {
 }, { threshold: 0.4 });
 
 sections.forEach(s => observer.observe(s));
+
+// lightbox
+const lightbox = document.createElement('div');
+lightbox.id = 'lightbox';
+lightbox.innerHTML = '<img />';
+document.body.appendChild(lightbox);
+
+document.querySelectorAll('.box-content-item img').forEach(img => {
+  img.style.cursor = 'zoom-in';
+  img.addEventListener('click', () => {
+    lightbox.querySelector('img').src = img.src;
+    lightbox.classList.add('open');
+  });
+});
+
+lightbox.addEventListener('click', () => lightbox.classList.remove('open'));
+
+document.addEventListener('keydown', e => {
+  if (e.key === 'Escape') lightbox.classList.remove('open');
+});
