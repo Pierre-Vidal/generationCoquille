@@ -322,6 +322,8 @@ a { text-decoration: none; color: inherit; }
   height: 130px;
   object-fit: cover;
   border-radius: 8px;
+  cursor: zoom-in;
+  pointer-events: auto;
 }
 .item-audio img {
   object-fit: contain;

@@ -47,12 +47,11 @@ document.addEventListener('keydown', e => {
   if (e.key === 'Escape') lightbox.classList.remove('open');
 });
 
-document.addEventListener('DOMContentLoaded', () => {
-  document.querySelectorAll('.box-content-item img').forEach(img => {
-    img.style.cursor = 'zoom-in';
-    img.addEventListener('click', () => {
-      lightbox.querySelector('img').src = img.src;
-      lightbox.classList.add('open');
-    });
-  });
+// event delegation sur le document entier
+document.addEventListener('click', e => {
+  const img = e.target.closest('.box-content-item img') || (e.target.tagName === 'IMG' && e.target.closest('.box-content-item') ? e.target : null);
+  if (img) {
+    lightbox.querySelector('img').src = img.src;
+    lightbox.classList.add('open');
+  }
 });
