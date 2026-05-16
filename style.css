@@ -614,7 +614,7 @@ a { text-decoration: none; color: inherit; }
   flex: 1;
 }
 
-/* Carte avis */
+/* Carte avis — pas de width ici, Keen Slider l'injecte lui-même */
 .avis-card {
   background: white;
   border: 2px solid var(--dark);
@@ -625,7 +625,7 @@ a { text-decoration: none; color: inherit; }
   flex-direction: column;
   gap: .9rem;
   box-sizing: border-box;
-  margin: 4px;
+  height: 100%;
 }
 
 /* En-tête : avatar à gauche, nom à droite */
