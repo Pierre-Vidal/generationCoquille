@@ -84,13 +84,10 @@ sections.forEach(s => observer.observe(s));
   const next   = document.getElementById('avisNext');
 
   const slider = new KeenSlider('#avisSlider', {
-    slides: { perView: 3, spacing: 20 },
-    breakpoints: {
-      '(max-width: 960px)': { slides: { perView: 2, spacing: 16 } },
-      '(max-width: 600px)': { slides: { perView: 1, spacing: 12 } },
-    },
+    slides: { perView: 3, spacing: 16 },
     slideChanged(s) { updateDots(s.track.details.rel); },
     created(s) {
+      // génère les dots
       const total = s.slides.length;
       for (let i = 0; i < total; i++) {
         const dot = document.createElement('button');
