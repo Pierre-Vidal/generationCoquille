@@ -79,17 +79,26 @@ sections.forEach(s => observer.observe(s));
 
 // carousel avis (3 cartes visibles)
 (function () {
+  const win     = document.getElementById('avisWindow');
   const track   = document.getElementById('avisTrack');
-  const cards   = track.querySelectorAll('.avis-card');
+  const cards   = Array.from(track.querySelectorAll('.avis-card'));
   const dotsEl  = document.getElementById('avisDots');
   const prev    = document.getElementById('avisPrev');
   const next    = document.getElementById('avisNext');
+  const gap     = 12; // px, correspond au gap: 1.2rem
   const visible = 3;
   const total   = cards.length;
-  const steps   = total - visible; // nombre de positions possibles
+  const steps   = total - visible;
   let current   = 0;
 
-  // Crée les dots (un par position)
+  function setCardWidths() {
+    const winW  = win.offsetWidth;
+    const cardW = (winW - gap * (visible - 1)) / visible;
+    cards.forEach(c => { c.style.width = cardW + 'px'; });
+    return cardW;
+  }
+
+  // Crée les dots
   for (let i = 0; i <= steps; i++) {
     const dot = document.createElement('button');
     dot.className = 'cq-dot' + (i === 0 ? ' active' : '');
@@ -100,8 +109,7 @@ sections.forEach(s => observer.observe(s));
 
   function goTo(index) {
     current = index;
-    // Largeur d'une carte + gap (1.5rem = 24px)
-    const cardW = track.querySelector('.avis-card').offsetWidth + 24;
+    const cardW = cards[0].offsetWidth + gap;
     track.style.transform = 'translateX(-' + (current * cardW) + 'px)';
     dotsEl.querySelectorAll('.cq-dot').forEach((d, i) =>
       d.classList.toggle('active', i === current)
@@ -113,7 +121,9 @@ sections.forEach(s => observer.observe(s));
   prev.addEventListener('click', () => { if (current > 0) goTo(current - 1); });
   next.addEventListener('click', () => { if (current < steps) goTo(current + 1); });
 
+  setCardWidths();
   goTo(0);
+  window.addEventListener('resize', () => { setCardWidths(); goTo(current); });
 })();
 
 // lightbox
