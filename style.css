@@ -268,7 +268,6 @@ a { text-decoration: none; color: inherit; }
   position: relative;
   padding: 5rem 0;
   background: white;
-  overflow: hidden;
 }
 
 /* En-tête de catégorie */
@@ -329,43 +328,40 @@ a { text-decoration: none; color: inherit; }
 
 /* ── Carousel vanilla ───────────────────── */
 .cq-carousel {
-  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
 }
 
-/* Fenêtre glissante — overflow strict pour bloquer le débordement */
+/* Fenêtre : overflow:hidden coupe ce qui dépasse */
 .cq-slides {
   overflow: hidden;
-  border-radius: 20px;
-  margin: 0 3.5rem;      /* espace pour les flèches sur les côtés */
 }
 
-/* Piste intérieure */
+/* Piste : rangée de slides côte à côte */
 .cq-track {
   display: flex;
   transition: transform .4s cubic-bezier(.4,0,.2,1);
   will-change: transform;
 }
 
-/* Chaque slide — largeur fixée à 100% de la fenêtre, jamais plus */
+/* Chaque slide : exactement la largeur de la fenêtre, jamais plus */
 .cq-slide {
   flex: 0 0 100%;
-  width: 100%;
+  min-width: 0;
   box-sizing: border-box;
-  overflow: hidden;
 }
 
-/* Contrôles dots centrés en bas */
+/* Barre de contrôles : flèche — dots — flèche */
 .cq-controls {
   display: flex;
+  align-items: center;
   justify-content: center;
-  margin-top: 1.5rem;
+  gap: 2rem;
 }
 
-/* Flèches positionnées sur les côtés du carousel */
+/* Flèches */
 .cq-btn {
-  position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
   width: 46px; height: 46px;
   border-radius: 50%;
   border: 2px solid var(--dark);
@@ -375,20 +371,18 @@ a { text-decoration: none; color: inherit; }
   display: flex; align-items: center; justify-content: center;
   transition: background .15s, transform .15s, box-shadow .15s;
   color: var(--dark);
-  z-index: 10;
+  flex-shrink: 0;
 }
-#cqPrev { left: 0; }
-#cqNext { right: 0; }
 .cq-btn svg { width: 20px; height: 20px; }
 .cq-btn:hover {
   background: var(--orange);
-  transform: translateY(-50%) translate(-1px,-1px);
+  transform: translate(-1px, -1px);
   box-shadow: 4px 4px 0 var(--dark);
 }
 .cq-btn:disabled {
   opacity: .3;
   cursor: default;
-  transform: translateY(-50%);
+  transform: none;
   box-shadow: 3px 3px 0 var(--dark);
 }
 

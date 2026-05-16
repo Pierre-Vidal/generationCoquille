@@ -88,11 +88,10 @@ document.addEventListener('keydown', e => {
   if (e.key === 'Escape') lightbox.classList.remove('open');
 });
 
-// event delegation sur le document entier
+// event delegation lightbox
 document.addEventListener('click', e => {
-  const img = e.target.closest('.box-content-item img') || (e.target.tagName === 'IMG' && e.target.closest('.box-content-item') ? e.target : null);
-  if (img) {
-    lightbox.querySelector('img').src = img.src;
+  if (e.target.tagName === 'IMG' && e.target.closest('.box-content-item')) {
+    lightbox.querySelector('img').src = e.target.src;
     lightbox.classList.add('open');
   }
 });
