@@ -38,11 +38,13 @@ sections.forEach(s => observer.observe(s));
 
 // carousel "Trouve ta coquille" — Splide.js
 new Splide('#splide-coquille', {
-  type       : 'fade',
+  type       : 'slide',
   rewind     : true,
   arrows     : true,
   pagination : true,
-  speed      : 500,
+  speed      : 400,
+  gap        : 0,
+  perPage    : 1,
 }).mount();
 
 // lightbox

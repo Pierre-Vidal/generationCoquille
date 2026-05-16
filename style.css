@@ -331,6 +331,9 @@ a { text-decoration: none; color: inherit; }
 #splide-coquille {
   padding-bottom: 3rem;
 }
+#splide-coquille .splide__slide {
+  padding: .5rem 0;
+}
 
 /* flèches */
 #splide-coquille .splide__arrow {
