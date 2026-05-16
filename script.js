@@ -36,28 +36,14 @@ const observer = new IntersectionObserver(entries => {
 
 sections.forEach(s => observer.observe(s));
 
-// carousel "Trouve ta coquille"
-const slides     = document.querySelectorAll('.coquille-slide');
-const dots       = document.querySelectorAll('.dot');
-const arrowPrev  = document.getElementById('coquilleArrowPrev');
-const arrowNext  = document.getElementById('coquilleArrowNext');
-let currentSlide = 0;
-
-function goToSlide(index) {
-  slides[currentSlide].classList.remove('active');
-  dots[currentSlide].classList.remove('active');
-  currentSlide = index;
-  slides[currentSlide].classList.add('active');
-  dots[currentSlide].classList.add('active');
-  arrowPrev.disabled = currentSlide === 0;
-  arrowNext.disabled = currentSlide === slides.length - 1;
-}
-
-arrowPrev.addEventListener('click', () => { if (currentSlide > 0) goToSlide(currentSlide - 1); });
-arrowNext.addEventListener('click', () => { if (currentSlide < slides.length - 1) goToSlide(currentSlide + 1); });
-dots.forEach(dot => dot.addEventListener('click', () => goToSlide(+dot.dataset.dot)));
-
-goToSlide(0);
+// carousel "Trouve ta coquille" — Splide.js
+new Splide('#splide-coquille', {
+  type       : 'fade',
+  rewind     : true,
+  arrows     : true,
+  pagination : true,
+  speed      : 500,
+}).mount();
 
 // lightbox
 const lightbox = document.createElement('div');

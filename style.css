@@ -289,60 +289,6 @@ a { text-decoration: none; color: inherit; }
   color: #666;
 }
 
-/* Carousel wrapper */
-.coquille-carousel {
-  position: relative;
-  display: flex;
-  align-items: center;
-  gap: 1rem;
-}
-
-/* Flèches */
-.coquille-arrow {
-  flex-shrink: 0;
-  width: 48px; height: 48px;
-  border-radius: 50%;
-  border: 2px solid var(--dark);
-  background: white;
-  box-shadow: 3px 3px 0 var(--dark);
-  cursor: pointer;
-  display: flex; align-items: center; justify-content: center;
-  transition: transform .15s, box-shadow .15s, background .15s;
-  color: var(--dark);
-}
-.coquille-arrow svg { width: 22px; height: 22px; }
-.coquille-arrow:hover {
-  background: var(--orange);
-  transform: translate(-1px,-1px);
-  box-shadow: 4px 4px 0 var(--dark);
-}
-.coquille-arrow:disabled {
-  opacity: .35;
-  cursor: default;
-  transform: none;
-  box-shadow: 3px 3px 0 var(--dark);
-}
-
-/* Piste des slides */
-.coquille-track {
-  flex: 1;
-  overflow: hidden;
-  position: relative;
-  min-height: 400px;
-}
-
-/* Slides */
-.coquille-slide {
-  display: none;
-  animation: fadeSlide .3s ease;
-}
-.coquille-slide.active { display: block; }
-
-@keyframes fadeSlide {
-  from { opacity: 0; transform: translateX(18px); }
-  to   { opacity: 1; transform: translateX(0); }
-}
-
 /* Nom de la coquille */
 .coquille-name {
   font-family: var(--font-h2);
@@ -362,42 +308,66 @@ a { text-decoration: none; color: inherit; }
   min-height: 380px;
   gap: 1.4rem;
   background: var(--bg);
-  border: 2px dashed var(--dark);
+  border: 2px dashed #ccc;
   border-radius: 24px;
   padding: 3rem 2rem;
-  opacity: .8;
+  opacity: .7;
 }
 .soon-lock { font-size: 3.5rem; }
 .soon-title {
   font-family: var(--font-h2);
   font-size: 2rem;
   font-weight: 700;
-  color: #999;
+  color: #aaa;
 }
 .soon-text {
   font-size: 1rem;
-  color: #888;
+  color: #999;
   max-width: 380px;
   line-height: 1.6;
 }
 
-/* Dots indicateurs */
-.coquille-dots {
-  display: flex;
-  justify-content: center;
-  gap: .6rem;
-  margin-top: 2rem;
+/* ── Splide custom skin ───────────────────── */
+#splide-coquille {
+  padding-bottom: 3rem;
 }
-.dot {
+
+/* flèches */
+#splide-coquille .splide__arrow {
+  background: white;
+  border: 2px solid var(--dark);
+  box-shadow: 3px 3px 0 var(--dark);
+  opacity: 1;
+  width: 46px; height: 46px;
+  transition: background .15s, transform .15s, box-shadow .15s;
+}
+#splide-coquille .splide__arrow svg { fill: var(--dark); }
+#splide-coquille .splide__arrow:hover {
+  background: var(--orange);
+  transform: translate(-1px,-1px);
+  box-shadow: 4px 4px 0 var(--dark);
+}
+#splide-coquille .splide__arrow:disabled { opacity: .3; }
+#splide-coquille .splide__arrow--prev { left: -1.8rem; }
+#splide-coquille .splide__arrow--next { right: -1.8rem; }
+
+/* pagination dots */
+#splide-coquille .splide__pagination {
+  bottom: .6rem;
+}
+#splide-coquille .splide__pagination__page {
   width: 12px; height: 12px;
   border-radius: 50%;
   border: 2px solid var(--dark);
   background: white;
-  cursor: pointer;
-  padding: 0;
+  opacity: 1;
   transition: background .2s;
+  margin: 0 4px;
 }
-.dot.active { background: var(--lavande); }
+#splide-coquille .splide__pagination__page.is-active {
+  background: var(--lavande);
+  transform: none;
+}
 
 .section-blob-deco {
   position: absolute;
@@ -845,9 +815,9 @@ footer {
   .hero-sub { text-align: center; }
 
   .contenus-layout { grid-template-columns: 1fr; }
-  .coquille-arrow { width: 38px; height: 38px; }
-  .coquille-arrow svg { width: 18px; height: 18px; }
   .coquille-category-title { font-size: 2.2rem; }
+  #splide-coquille .splide__arrow--prev { left: 0; }
+  #splide-coquille .splide__arrow--next { right: 0; }
   .suspended-grid { grid-template-columns: 1fr; }
   .partners-grid { grid-template-columns: repeat(2, 1fr); }
 }
