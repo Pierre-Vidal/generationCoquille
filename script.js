@@ -36,16 +36,46 @@ const observer = new IntersectionObserver(entries => {
 
 sections.forEach(s => observer.observe(s));
 
-// carousel "Trouve ta coquille" — Splide.js
-new Splide('#splide-coquille', {
-  type       : 'slide',
-  rewind     : true,
-  arrows     : true,
-  pagination : true,
-  speed      : 400,
-  gap        : 0,
-  perPage    : 1,
-}).mount();
+// carousel "Trouve ta coquille"
+(function () {
+  const slidesEl = document.getElementById('cqSlides');
+  const slides   = slidesEl.querySelectorAll('.cq-slide');
+  const dotsEl   = document.getElementById('cqDots');
+  const prev     = document.getElementById('cqPrev');
+  const next     = document.getElementById('cqNext');
+  const total    = slides.length;
+  let current    = 0;
+
+  // Crée la piste flex
+  const track = document.createElement('div');
+  track.className = 'cq-track';
+  slides.forEach(s => track.appendChild(s));
+  slidesEl.appendChild(track);
+
+  // Crée les dots
+  slides.forEach((_, i) => {
+    const dot = document.createElement('button');
+    dot.className = 'cq-dot' + (i === 0 ? ' active' : '');
+    dot.setAttribute('aria-label', 'Coquille ' + (i + 1));
+    dot.addEventListener('click', () => goTo(i));
+    dotsEl.appendChild(dot);
+  });
+
+  function goTo(index) {
+    current = index;
+    track.style.transform = 'translateX(-' + (current * 100) + '%)';
+    dotsEl.querySelectorAll('.cq-dot').forEach((d, i) =>
+      d.classList.toggle('active', i === current)
+    );
+    prev.disabled = current === 0;
+    next.disabled = current === total - 1;
+  }
+
+  prev.addEventListener('click', () => { if (current > 0) goTo(current - 1); });
+  next.addEventListener('click', () => { if (current < total - 1) goTo(current + 1); });
+
+  goTo(0);
+})();
 
 // lightbox
 const lightbox = document.createElement('div');

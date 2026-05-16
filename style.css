@@ -327,50 +327,81 @@ a { text-decoration: none; color: inherit; }
   line-height: 1.6;
 }
 
-/* ── Splide custom skin ───────────────────── */
-#splide-coquille {
-  padding-bottom: 3rem;
-}
-#splide-coquille .splide__slide {
-  padding: .5rem 0;
+/* ── Carousel vanilla ───────────────────── */
+.cq-carousel {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
 }
 
-/* flèches */
-#splide-coquille .splide__arrow {
-  background: white;
-  border: 2px solid var(--dark);
-  box-shadow: 3px 3px 0 var(--dark);
-  opacity: 1;
-  width: 46px; height: 46px;
-  transition: background .15s, transform .15s, box-shadow .15s;
+/* Fenêtre glissante */
+.cq-slides {
+  overflow: hidden;
+  border-radius: 20px;
 }
-#splide-coquille .splide__arrow svg { fill: var(--dark); }
-#splide-coquille .splide__arrow:hover {
+
+/* Piste intérieure */
+.cq-track {
+  display: flex;
+  transition: transform .4s cubic-bezier(.4,0,.2,1);
+  will-change: transform;
+}
+
+/* Chaque slide */
+.cq-slide {
+  min-width: 100%;
+  box-sizing: border-box;
+}
+
+/* Contrôles (flèches + dots) */
+.cq-controls {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1.2rem;
+}
+
+/* Boutons flèches */
+.cq-btn {
+  width: 46px; height: 46px;
+  border-radius: 50%;
+  border: 2px solid var(--dark);
+  background: white;
+  box-shadow: 3px 3px 0 var(--dark);
+  cursor: pointer;
+  display: flex; align-items: center; justify-content: center;
+  transition: background .15s, transform .15s, box-shadow .15s;
+  color: var(--dark);
+  flex-shrink: 0;
+}
+.cq-btn svg { width: 20px; height: 20px; }
+.cq-btn:hover {
   background: var(--orange);
   transform: translate(-1px,-1px);
   box-shadow: 4px 4px 0 var(--dark);
 }
-#splide-coquille .splide__arrow:disabled { opacity: .3; }
-#splide-coquille .splide__arrow--prev { left: -1.8rem; }
-#splide-coquille .splide__arrow--next { right: -1.8rem; }
-
-/* pagination dots */
-#splide-coquille .splide__pagination {
-  bottom: .6rem;
+.cq-btn:disabled {
+  opacity: .3;
+  cursor: default;
+  transform: none;
+  box-shadow: 3px 3px 0 var(--dark);
 }
-#splide-coquille .splide__pagination__page {
+
+/* Dots */
+.cq-dots {
+  display: flex;
+  gap: .5rem;
+}
+.cq-dot {
   width: 12px; height: 12px;
   border-radius: 50%;
   border: 2px solid var(--dark);
   background: white;
-  opacity: 1;
+  cursor: pointer;
+  padding: 0;
   transition: background .2s;
-  margin: 0 4px;
 }
-#splide-coquille .splide__pagination__page.is-active {
-  background: var(--lavande);
-  transform: none;
-}
+.cq-dot.active { background: var(--lavande); }
 
 .section-blob-deco {
   position: absolute;
