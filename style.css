@@ -595,6 +595,85 @@ a { text-decoration: none; color: inherit; }
 }
 
 /* ═══════════════════════════════════════════
+   AVIS
+═══════════════════════════════════════════ */
+#avis {
+  padding: 5rem 0;
+  background: var(--bg);
+}
+
+/* Wrapper carousel avis : flèche — fenêtre — flèche */
+.avis-carousel {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+/* Fenêtre : montre 3 cartes, coupe le reste */
+.avis-window {
+  flex: 1;
+  overflow: hidden;
+}
+
+/* Piste : toutes les cartes en ligne */
+.avis-track {
+  display: flex;
+  gap: 1.5rem;
+  transition: transform .4s cubic-bezier(.4,0,.2,1);
+  will-change: transform;
+}
+
+/* Carte avis : 1/3 de la fenêtre moins les gaps */
+.avis-card {
+  flex: 0 0 calc((100% - 3rem) / 3);
+  background: white;
+  border: 2px solid var(--dark);
+  border-radius: 20px;
+  padding: 1.6rem 1.4rem;
+  box-shadow: 4px 4px 0 var(--dark);
+  display: flex;
+  flex-direction: column;
+  gap: .8rem;
+}
+
+/* Avatar cercle coloré */
+.avis-avatar {
+  width: 52px; height: 52px;
+  border-radius: 50%;
+  border: 2px solid var(--dark);
+  flex-shrink: 0;
+}
+
+/* Étoiles */
+.avis-stars {
+  font-size: 1.1rem;
+  color: var(--orange);
+  letter-spacing: .05em;
+}
+
+.avis-text {
+  font-size: .92rem;
+  line-height: 1.65;
+  color: #444;
+  flex: 1;
+}
+
+.avis-name {
+  font-family: var(--font-h2);
+  font-weight: 700;
+  font-size: .85rem;
+  color: var(--lavande);
+}
+
+/* Dots */
+.avis-dots {
+  display: flex;
+  justify-content: center;
+  gap: .5rem;
+  margin-top: 1.5rem;
+}
+
+/* ═══════════════════════════════════════════
    NOTRE VISION
 ═══════════════════════════════════════════ */
 #vision {

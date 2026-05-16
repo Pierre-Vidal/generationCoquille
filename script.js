@@ -77,6 +77,45 @@ sections.forEach(s => observer.observe(s));
   goTo(0);
 })();
 
+// carousel avis (3 cartes visibles)
+(function () {
+  const track   = document.getElementById('avisTrack');
+  const cards   = track.querySelectorAll('.avis-card');
+  const dotsEl  = document.getElementById('avisDots');
+  const prev    = document.getElementById('avisPrev');
+  const next    = document.getElementById('avisNext');
+  const visible = 3;
+  const total   = cards.length;
+  const steps   = total - visible; // nombre de positions possibles
+  let current   = 0;
+
+  // Crée les dots (un par position)
+  for (let i = 0; i <= steps; i++) {
+    const dot = document.createElement('button');
+    dot.className = 'cq-dot' + (i === 0 ? ' active' : '');
+    dot.setAttribute('aria-label', 'Page ' + (i + 1));
+    dot.addEventListener('click', () => goTo(i));
+    dotsEl.appendChild(dot);
+  }
+
+  function goTo(index) {
+    current = index;
+    // Largeur d'une carte + gap (1.5rem = 24px)
+    const cardW = track.querySelector('.avis-card').offsetWidth + 24;
+    track.style.transform = 'translateX(-' + (current * cardW) + 'px)';
+    dotsEl.querySelectorAll('.cq-dot').forEach((d, i) =>
+      d.classList.toggle('active', i === current)
+    );
+    prev.disabled = current === 0;
+    next.disabled = current === steps;
+  }
+
+  prev.addEventListener('click', () => { if (current > 0) goTo(current - 1); });
+  next.addEventListener('click', () => { if (current < steps) goTo(current + 1); });
+
+  goTo(0);
+})();
+
 // lightbox
 const lightbox = document.createElement('div');
 lightbox.id = 'lightbox';
