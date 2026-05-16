@@ -5,6 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Génération Coquille</title>
   <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/keen-slider@6/keen-slider.min.css" />
 </head>
 <body>
 
@@ -143,67 +144,63 @@
     <div class="container">
       <h2 class="section-title">Ce qu'ils en pensent</h2>
 
-      <div class="avis-carousel">
-
-        <button class="cq-btn avis-prev" id="avisPrev" aria-label="Précédent">
+      <div class="avis-wrap">
+        <button class="cq-btn" id="avisPrev" aria-label="Précédent">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"/></svg>
         </button>
 
-        <div class="avis-window" id="avisWindow">
-          <div class="avis-track" id="avisTrack">
+        <div id="avisSlider" class="keen-slider avis-slider">
 
-            <div class="avis-card">
-              <div class="avis-header">
-                <div class="avis-avatar" style="background:#CBB8EA"></div>
-                <span class="avis-name">Sophie M.</span>
-              </div>
-              <div class="avis-stars">★★★★★</div>
-              <p class="avis-text">« Une box vraiment bien pensée, mes enfants ont adoré les activités et on a eu de super discussions en famille ! »</p>
+          <div class="keen-slider__slide avis-card">
+            <div class="avis-header">
+              <div class="avis-avatar" style="background:#CBB8EA"></div>
+              <span class="avis-name">Sophie M.</span>
             </div>
-
-            <div class="avis-card">
-              <div class="avis-header">
-                <div class="avis-avatar" style="background:#DBF59D"></div>
-                <span class="avis-name">Thomas L.</span>
-              </div>
-              <div class="avis-stars">★★★★★</div>
-              <p class="avis-text">« Enfin une box qui aborde les stéréotypes de façon ludique et accessible. Le livre jeunesse est magnifique. »</p>
-            </div>
-
-            <div class="avis-card">
-              <div class="avis-header">
-                <div class="avis-avatar" style="background:#FFDDAB"></div>
-                <span class="avis-name">Camille R.</span>
-              </div>
-              <div class="avis-stars">★★★★☆</div>
-              <p class="avis-text">« Contenu de qualité, bien documenté pour les parents. L'histoire audio a été un coup de cœur pour toute la famille. »</p>
-            </div>
-
-            <div class="avis-card">
-              <div class="avis-header">
-                <div class="avis-avatar" style="background:#A177DB"></div>
-                <span class="avis-name">Lucie D.</span>
-              </div>
-              <div class="avis-stars">★★★★★</div>
-              <p class="avis-text">« Je recommande à tous les parents qui veulent éveiller leurs enfants sur ces sujets sans culpabiliser. Bravo ! »</p>
-            </div>
-
-            <div class="avis-card">
-              <div class="avis-header">
-                <div class="avis-avatar" style="background:#FB8265"></div>
-                <span class="avis-name">Marc B.</span>
-              </div>
-              <div class="avis-stars">★★★★★</div>
-              <p class="avis-text">« Le coloriage et le magazine parents sont vraiment complémentaires. On sent que c'est conçu avec soin et bienveillance. »</p>
-            </div>
-
+            <div class="avis-stars">★★★★★</div>
+            <p class="avis-text">« Une box vraiment bien pensée, mes enfants ont adoré les activités et on a eu de super discussions en famille ! »</p>
           </div>
+
+          <div class="keen-slider__slide avis-card">
+            <div class="avis-header">
+              <div class="avis-avatar" style="background:#DBF59D"></div>
+              <span class="avis-name">Thomas L.</span>
+            </div>
+            <div class="avis-stars">★★★★★</div>
+            <p class="avis-text">« Enfin une box qui aborde les stéréotypes de façon ludique et accessible. Le livre jeunesse est magnifique. »</p>
+          </div>
+
+          <div class="keen-slider__slide avis-card">
+            <div class="avis-header">
+              <div class="avis-avatar" style="background:#FFDDAB"></div>
+              <span class="avis-name">Camille R.</span>
+            </div>
+            <div class="avis-stars">★★★★☆</div>
+            <p class="avis-text">« Contenu de qualité, bien documenté pour les parents. L'histoire audio a été un coup de cœur pour toute la famille. »</p>
+          </div>
+
+          <div class="keen-slider__slide avis-card">
+            <div class="avis-header">
+              <div class="avis-avatar" style="background:#A177DB"></div>
+              <span class="avis-name">Lucie D.</span>
+            </div>
+            <div class="avis-stars">★★★★★</div>
+            <p class="avis-text">« Je recommande à tous les parents qui veulent éveiller leurs enfants sur ces sujets sans culpabiliser. Bravo ! »</p>
+          </div>
+
+          <div class="keen-slider__slide avis-card">
+            <div class="avis-header">
+              <div class="avis-avatar" style="background:#FB8265"></div>
+              <span class="avis-name">Marc B.</span>
+            </div>
+            <div class="avis-stars">★★★★★</div>
+            <p class="avis-text">« Le coloriage et le magazine parents sont vraiment complémentaires. On sent que c'est conçu avec soin et bienveillance. »</p>
+          </div>
+
         </div>
 
-        <button class="cq-btn avis-next" id="avisNext" aria-label="Suivant">
+        <button class="cq-btn" id="avisNext" aria-label="Suivant">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg>
         </button>
-
       </div>
 
       <div class="avis-dots" id="avisDots"></div>
@@ -319,6 +316,7 @@
     <p>© 2025 Génération Coquille – les Escargott·es</p>
   </footer>
 
+  <script src="https://cdn.jsdelivr.net/npm/keen-slider@6/keen-slider.js"></script>
   <script src="script.js"></script>
 </body>
 </html>

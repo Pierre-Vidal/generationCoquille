@@ -77,53 +77,38 @@ sections.forEach(s => observer.observe(s));
   goTo(0);
 })();
 
-// carousel avis (3 cartes visibles)
+// carousel avis — Keen Slider
 (function () {
-  const win     = document.getElementById('avisWindow');
-  const track   = document.getElementById('avisTrack');
-  const cards   = Array.from(track.querySelectorAll('.avis-card'));
-  const dotsEl  = document.getElementById('avisDots');
-  const prev    = document.getElementById('avisPrev');
-  const next    = document.getElementById('avisNext');
-  const gap     = 12; // px, correspond au gap: 1.2rem
-  const visible = 3;
-  const total   = cards.length;
-  const steps   = total - visible;
-  let current   = 0;
+  const dotsEl = document.getElementById('avisDots');
+  const prev   = document.getElementById('avisPrev');
+  const next   = document.getElementById('avisNext');
 
-  function setCardWidths() {
-    const winW  = win.offsetWidth;
-    const cardW = (winW - gap * (visible - 1)) / visible;
-    cards.forEach(c => { c.style.width = cardW + 'px'; });
-    return cardW;
-  }
+  const slider = new KeenSlider('#avisSlider', {
+    slides: { perView: 3, spacing: 16 },
+    slideChanged(s) { updateDots(s.track.details.rel); },
+    created(s) {
+      // génère les dots
+      const total = s.slides.length;
+      for (let i = 0; i < total; i++) {
+        const dot = document.createElement('button');
+        dot.className = 'cq-dot' + (i === 0 ? ' active' : '');
+        dot.addEventListener('click', () => s.moveToIdx(i));
+        dotsEl.appendChild(dot);
+      }
+      updateDots(0);
+    },
+  });
 
-  // Crée les dots
-  for (let i = 0; i <= steps; i++) {
-    const dot = document.createElement('button');
-    dot.className = 'cq-dot' + (i === 0 ? ' active' : '');
-    dot.setAttribute('aria-label', 'Page ' + (i + 1));
-    dot.addEventListener('click', () => goTo(i));
-    dotsEl.appendChild(dot);
-  }
-
-  function goTo(index) {
-    current = index;
-    const cardW = cards[0].offsetWidth + gap;
-    track.style.transform = 'translateX(-' + (current * cardW) + 'px)';
+  function updateDots(idx) {
     dotsEl.querySelectorAll('.cq-dot').forEach((d, i) =>
-      d.classList.toggle('active', i === current)
+      d.classList.toggle('active', i === idx)
     );
-    prev.disabled = current === 0;
-    next.disabled = current === steps;
+    prev.disabled = idx === 0;
+    next.disabled = idx === slider.slides.length - 1;
   }
 
-  prev.addEventListener('click', () => { if (current > 0) goTo(current - 1); });
-  next.addEventListener('click', () => { if (current < steps) goTo(current + 1); });
-
-  setCardWidths();
-  goTo(0);
-  window.addEventListener('resize', () => { setCardWidths(); goTo(current); });
+  prev.addEventListener('click', () => slider.prev());
+  next.addEventListener('click', () => slider.next());
 })();
 
 // lightbox
