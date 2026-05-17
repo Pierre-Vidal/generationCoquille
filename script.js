@@ -88,41 +88,44 @@ sections.forEach(s => observer.observe(s));
 // carte partenaires — Leaflet
 (function () {
   const mapEl = document.getElementById('partenaireMap');
-  if (!mapEl) return;
+  const panel = document.getElementById('mapInfoPanel');
+  if (!mapEl || !panel) return;
 
-  const map = L.map('partenaireMap', { scrollWheelZoom: false }).setView([46.8, 2.3], 6);
+  const map = L.map('partenaireMap', { scrollWheelZoom: true }).setView([46.8, 2.3], 6);
 
   L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
     attribution: '© <a href="https://openstreetmap.org">OpenStreetMap</a>',
     maxZoom: 18,
   }).addTo(map);
 
-  // Marqueur custom aux couleurs du site
   const icon = L.divIcon({
     className: '',
-    html: '<div style="width:18px;height:18px;background:#A177DB;border:3px solid #2a2a2a;border-radius:50%;box-shadow:2px 2px 0 #2a2a2a"></div>',
+    html: '<div style="width:18px;height:18px;background:#A177DB;border:3px solid #2a2a2a;border-radius:50%;box-shadow:2px 2px 0 #2a2a2a;transition:transform .15s"></div>',
     iconSize: [18, 18],
     iconAnchor: [9, 9],
-    popupAnchor: [0, -14],
   });
 
-  // Liste des partenaires — à mettre à jour avec les vraies boutiques
   const partenaires = [
-    { nom: 'Librairie Les Mots Doux',  type: 'Librairie jeunesse', adresse: '12 rue de la Paix, Lyon',      lat: 45.7640,  lng: 4.8357  },
-    { nom: 'Espace ESS Bordeaux',       type: 'Tiers-lieu éducatif', adresse: '5 allée des Arts, Bordeaux',  lat: 44.8378,  lng: -0.5792 },
-    { nom: 'Atelier Parenthèse',        type: 'Atelier parents',    adresse: '8 rue des Lilas, Nantes',      lat: 47.2184,  lng: -1.5536 },
-    { nom: 'Boutique Imagine',          type: 'Boutique solidaire', adresse: '3 bd Voltaire, Paris',         lat: 48.8566,  lng: 2.3522  },
-    { nom: 'Médiathèque du Midi',       type: 'Médiathèque',        adresse: '22 av. Jean Jaurès, Toulouse', lat: 43.6047,  lng: 1.4442  },
+    { nom: 'Librairie Les Mots Doux',  type: 'Librairie jeunesse',  adresse: '12 rue de la Paix, Lyon',       lat: 45.7640, lng: 4.8357  },
+    { nom: 'Espace ESS Bordeaux',       type: 'Tiers-lieu éducatif', adresse: '5 allée des Arts, Bordeaux',   lat: 44.8378, lng: -0.5792 },
+    { nom: 'Atelier Parenthèse',        type: 'Atelier parents',     adresse: '8 rue des Lilas, Nantes',      lat: 47.2184, lng: -1.5536 },
+    { nom: 'Boutique Imagine',          type: 'Boutique solidaire',  adresse: '3 bd Voltaire, Paris',         lat: 48.8566, lng: 2.3522  },
+    { nom: 'Médiathèque du Midi',       type: 'Médiathèque',         adresse: '22 av. Jean Jaurès, Toulouse', lat: 43.6047, lng: 1.4442  },
   ];
+
+  function showInfo(p) {
+    panel.innerHTML = `
+      <span class="map-info-name">${p.nom}</span>
+      <span class="map-info-badge">${p.type}</span>
+      <hr class="map-info-divider" />
+      <p class="map-info-addr">📍 ${p.adresse}</p>
+    `;
+  }
 
   partenaires.forEach(p => {
     L.marker([p.lat, p.lng], { icon })
       .addTo(map)
-      .bindPopup(`
-        <div class="map-popup-name">${p.nom}</div>
-        <div class="map-popup-type">${p.type}</div>
-        <div class="map-popup-addr">📍 ${p.adresse}</div>
-      `);
+      .on('click', () => showInfo(p));
   });
 })();
 

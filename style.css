@@ -783,52 +783,91 @@ a { text-decoration: none; color: inherit; }
   text-align: center;
 }
 
-/* Carte Leaflet */
-.map-wrap {
+/* Layout carte + panneau */
+.map-layout {
+  display: grid;
+  grid-template-columns: 1fr 300px;
+  gap: 1.5rem;
   margin: 2.5rem 0;
-  border-top: 3px solid var(--dark);
-  border-bottom: 3px solid var(--dark);
-}
-#partenaireMap {
-  width: 100%;
-  height: 480px;
+  align-items: stretch;
 }
 
-/* Popup Leaflet custom */
-.leaflet-popup-content-wrapper {
-  border: 2px solid var(--dark) !important;
-  border-radius: 16px !important;
-  box-shadow: 4px 4px 0 var(--dark) !important;
-  font-family: var(--font-body) !important;
+#partenaireMap {
+  height: 360px;
+  border-radius: 20px;
+  border: 2px solid var(--dark);
+  box-shadow: 4px 4px 0 var(--dark);
+  overflow: hidden;
 }
-.leaflet-popup-tip { display: none; }
-.map-popup-name {
+
+/* Panneau info à droite */
+.map-info-panel {
+  background: var(--bg);
+  border: 2px solid var(--dark);
+  border-radius: 20px;
+  box-shadow: 4px 4px 0 var(--dark);
+  padding: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  min-height: 200px;
+}
+
+.map-info-placeholder {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  height: 100%;
+  gap: .8rem;
+  color: #aaa;
+}
+.map-info-placeholder span { font-size: 2.5rem; }
+.map-info-placeholder p { font-size: .9rem; line-height: 1.5; }
+
+.map-info-name {
   font-family: var(--font-h2);
   font-weight: 700;
-  font-size: 1rem;
+  font-size: 1.2rem;
   color: var(--lavande);
-  margin-bottom: .3rem;
 }
-.map-popup-type {
-  font-size: .82rem;
-  color: #888;
-  margin-bottom: .4rem;
-}
-.map-popup-addr {
-  font-size: .85rem;
+.map-info-badge {
+  display: inline-block;
+  background: var(--mauve-clair);
   color: var(--dark);
+  font-family: var(--font-h2);
+  font-weight: 700;
+  font-size: .75rem;
+  padding: .25rem .8rem;
+  border-radius: 50px;
+  border: 1.5px solid var(--dark);
+}
+.map-info-addr {
+  font-size: .9rem;
+  color: #555;
+  line-height: 1.6;
+}
+.map-info-divider {
+  border: none;
+  border-top: 1.5px solid #ddd;
 }
 
 /* CTA partenaire */
 .partners-cta {
   text-align: center;
-  padding-top: 1rem;
+  padding-top: 2rem;
 }
 .partners-cta-text {
   font-family: var(--font-subtitle);
   font-weight: 700;
   font-size: 1.1rem;
   margin-bottom: 1.2rem;
+}
+
+@media (max-width: 760px) {
+  .map-layout { grid-template-columns: 1fr; }
+  #partenaireMap { height: 280px; }
 }
 
 /* ═══════════════════════════════════════════
