@@ -682,6 +682,7 @@ a { text-decoration: none; color: inherit; }
 ═══════════════════════════════════════════ */
 #vision {
   position: relative;
+  background: #f4f4f4;
   padding: 3rem 0 6rem;
   background: white;
   overflow: hidden;
@@ -800,7 +801,7 @@ a { text-decoration: none; color: inherit; }
 #box-suspendues { padding: 0; }
 
 .section-bg-orange {
-  background: var(--orange-clair);
+  background: white;
   padding: 6rem 0;
   border-top: 3px solid var(--dark);
   border-bottom: 3px solid var(--dark);
@@ -863,20 +864,20 @@ a { text-decoration: none; color: inherit; }
 }
 
 .suspended-logo-afad {
-  height: 80px;
+  height: 110px;
   width: auto;
   object-fit: contain;
 }
 
 .suspended-logo-gc {
-  height: 80px;
+  height: 110px;
   width: auto;
   object-fit: contain;
 }
 
 .suspended-logos-x {
   font-family: var(--font-h2);
-  font-size: 2rem;
+  font-size: 2.4rem;
   color: var(--dark);
   line-height: 1;
 }
