@@ -598,25 +598,38 @@ a { text-decoration: none; color: inherit; }
    AVIS
 ═══════════════════════════════════════════ */
 #avis {
-  padding: 5rem 0;
+  padding: 5rem 0 0;
   background: var(--bg);
 }
 #avis .section-title { margin-bottom: 2.5rem; }
 
-/* Wrapper avec fondu sur les bords */
-.avis-swiper-wrap {
+/* Bande pleine largeur avec fondu sur les bords */
+.avis-belt-wrap {
   position: relative;
-  padding: .5rem 0 3rem;
-  mask-image: linear-gradient(to right, transparent 0%, black 6%, black 94%, transparent 100%);
-  -webkit-mask-image: linear-gradient(to right, transparent 0%, black 6%, black 94%, transparent 100%);
+  overflow: hidden;
+  padding: 1rem 0 5rem;
+  mask-image: linear-gradient(to right, transparent 0%, black 8%, black 92%, transparent 100%);
+  -webkit-mask-image: linear-gradient(to right, transparent 0%, black 8%, black 92%, transparent 100%);
 }
 
-.avis-swiper {
-  padding: .5rem 2rem 2.5rem !important;
+/* Piste animée — contient les cartes en double pour boucle infinie */
+.avis-belt {
+  display: flex;
+  gap: 1.5rem;
+  width: max-content;
+  animation: belt-scroll 30s linear infinite;
+}
+.avis-belt:hover { animation-play-state: paused; }
+
+@keyframes belt-scroll {
+  from { transform: translateX(0); }
+  to   { transform: translateX(-50%); }
 }
 
 /* Carte */
 .avis-card {
+  width: 300px;
+  flex-shrink: 0;
   background: white;
   border: 2px solid var(--dark);
   border-radius: 20px;
@@ -625,13 +638,7 @@ a { text-decoration: none; color: inherit; }
   display: flex;
   flex-direction: column;
   gap: 1rem;
-  height: 100%;
   box-sizing: border-box;
-  transition: transform .2s, box-shadow .2s;
-}
-.avis-card:hover {
-  transform: translate(-2px, -2px);
-  box-shadow: 6px 6px 0 var(--dark);
 }
 
 /* Avatar + nom sur la même ligne */
@@ -642,7 +649,7 @@ a { text-decoration: none; color: inherit; }
 }
 
 .avis-avatar {
-  width: 48px; height: 48px;
+  width: 46px; height: 46px;
   border-radius: 50%;
   border: 2px solid var(--dark);
   flex-shrink: 0;
@@ -654,11 +661,11 @@ a { text-decoration: none; color: inherit; }
   font-size: 1rem;
   color: var(--lavande);
   display: block;
-  margin-bottom: .25rem;
+  margin-bottom: .2rem;
 }
 
 .avis-stars {
-  font-size: 1.2rem;
+  font-size: 1.15rem;
   color: var(--orange);
   letter-spacing: .05em;
   line-height: 1;
@@ -668,21 +675,6 @@ a { text-decoration: none; color: inherit; }
   font-size: .9rem;
   line-height: 1.65;
   color: #444;
-}
-
-/* Pagination Swiper custom */
-.avis-pagination {
-  bottom: 0 !important;
-}
-.avis-pagination .swiper-pagination-bullet {
-  width: 10px; height: 10px;
-  background: var(--dark);
-  opacity: .25;
-  transition: opacity .2s;
-}
-.avis-pagination .swiper-pagination-bullet-active {
-  background: var(--lavande);
-  opacity: 1;
 }
 
 /* ═══════════════════════════════════════════

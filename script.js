@@ -77,19 +77,13 @@ sections.forEach(s => observer.observe(s));
   goTo(0);
 })();
 
-// carousel avis — Swiper
-new Swiper('.avis-swiper', {
-  loop: true,
-  slidesPerView: 3,
-  spaceBetween: 24,
-  autoplay: { delay: 3500, disableOnInteraction: false, pauseOnMouseEnter: true },
-  pagination: { el: '.avis-pagination', clickable: true },
-  breakpoints: {
-    0:   { slidesPerView: 1 },
-    640: { slidesPerView: 2 },
-    960: { slidesPerView: 3 },
-  },
-});
+// carousel avis — bande infinie
+(function () {
+  const belt = document.getElementById('avisBelt');
+  if (!belt) return;
+  // Duplique les cartes pour que la boucle CSS soit seamless
+  belt.innerHTML += belt.innerHTML;
+})();
 
 // lightbox
 const lightbox = document.createElement('div');
