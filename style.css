@@ -733,6 +733,15 @@ a { text-decoration: none; color: inherit; }
   letter-spacing: .05em;
 }
 
+.slo-desc {
+  font-family: var(--font-body);
+  font-size: .88rem;
+  line-height: 1.7;
+  color: #555;
+  text-align: center;
+  max-width: 240px;
+}
+
 .values-list {
   display: flex;
   flex-direction: column;
