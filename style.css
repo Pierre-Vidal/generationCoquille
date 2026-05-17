@@ -682,7 +682,7 @@ a { text-decoration: none; color: inherit; }
 ═══════════════════════════════════════════ */
 #vision {
   position: relative;
-  background: #f4f4f4;
+  background: var(--bg);
   padding: 3rem 0 6rem;
   background: white;
   overflow: hidden;
