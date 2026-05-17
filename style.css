@@ -711,7 +711,7 @@ a { text-decoration: none; color: inherit; }
 
 .slo-img {
   width: 100%;
-  max-width: 260px;
+  max-width: 340px;
   height: auto;
   transform-origin: bottom center;
   animation: slo-sway 3.5s ease-in-out infinite;
@@ -726,20 +726,15 @@ a { text-decoration: none; color: inherit; }
   100% { transform: rotate(-2deg) translateY(0); }
 }
 
-.slo-name {
-  font-family: var(--font-title);
-  font-size: 1.8rem;
-  color: var(--jaune-vert);
-  letter-spacing: .05em;
-}
-
 .slo-desc {
-  font-family: var(--font-body);
-  font-size: .88rem;
+  font-family: var(--font-subtitle);
+  font-size: .92rem;
+  font-weight: 700;
+  font-style: italic;
   line-height: 1.7;
-  color: #555;
+  color: #666;
   text-align: center;
-  max-width: 240px;
+  max-width: 280px;
 }
 
 .values-list {
