@@ -77,39 +77,12 @@ sections.forEach(s => observer.observe(s));
   goTo(0);
 })();
 
-// carousel avis — Keen Slider
+// carousel avis — bande infinie
 (function () {
-  const dotsEl = document.getElementById('avisDots');
-  const prev   = document.getElementById('avisPrev');
-  const next   = document.getElementById('avisNext');
-
-  const slider = new KeenSlider('#avisSlider', {
-    slides: { perView: 3, spacing: 16 },
-    slideChanged(s) { updateDots(s.track.details.rel); },
-    created(s) {
-      // génère les dots
-      const total = s.slides.length;
-      for (let i = 0; i < total; i++) {
-        const dot = document.createElement('button');
-        dot.className = 'cq-dot' + (i === 0 ? ' active' : '');
-        dot.addEventListener('click', () => s.moveToIdx(i));
-        dotsEl.appendChild(dot);
-      }
-      updateDots(0);
-    },
-  });
-
-  function updateDots(idx) {
-    dotsEl.querySelectorAll('.cq-dot').forEach((d, i) =>
-      d.classList.toggle('active', i === idx)
-    );
-    const maxIdx = slider.track.details.maxIdx;
-    prev.disabled = idx === 0;
-    next.disabled = idx >= maxIdx;
-  }
-
-  prev.addEventListener('click', () => slider.prev());
-  next.addEventListener('click', () => slider.next());
+  const belt = document.getElementById('avisBelt');
+  if (!belt) return;
+  // Duplique les cartes pour que la boucle CSS soit seamless
+  belt.innerHTML += belt.innerHTML;
 })();
 
 // lightbox

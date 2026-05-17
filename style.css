@@ -598,41 +598,54 @@ a { text-decoration: none; color: inherit; }
    AVIS
 ═══════════════════════════════════════════ */
 #avis {
-  padding: 5rem 0;
+  padding: 5rem 0 0;
   background: var(--bg);
 }
+#avis .section-title { margin-bottom: 2.5rem; }
 
-/* Wrapper : flèche — slider — flèche */
-.avis-wrap {
+/* Bande pleine largeur avec fondu sur les bords */
+.avis-belt-wrap {
+  position: relative;
+  overflow: hidden;
+  padding: 1rem 0 5rem;
+  mask-image: linear-gradient(to right, transparent 0%, black 8%, black 92%, transparent 100%);
+  -webkit-mask-image: linear-gradient(to right, transparent 0%, black 8%, black 92%, transparent 100%);
+}
+
+/* Piste animée — contient les cartes en double pour boucle infinie */
+.avis-belt {
   display: flex;
-  align-items: center;
-  gap: 1rem;
+  gap: 1.5rem;
+  width: max-content;
+  animation: belt-scroll 30s linear infinite;
+}
+.avis-belt:hover { animation-play-state: paused; }
+
+@keyframes belt-scroll {
+  from { transform: translateX(0); }
+  to   { transform: translateX(-50%); }
 }
 
-/* Keen Slider container */
-.avis-slider {
-  flex: 1;
-}
-
-/* Carte avis */
+/* Carte */
 .avis-card {
+  width: 300px;
+  flex-shrink: 0;
   background: white;
   border: 2px solid var(--dark);
   border-radius: 20px;
-  padding: 1.4rem;
+  padding: 1.5rem;
   box-shadow: 4px 4px 0 var(--dark);
   display: flex;
   flex-direction: column;
-  gap: .9rem;
+  gap: 1rem;
   box-sizing: border-box;
-  margin: 4px;
 }
 
-/* En-tête : avatar à gauche, nom à droite */
+/* Avatar + nom sur la même ligne */
 .avis-header {
   display: flex;
   align-items: center;
-  gap: .8rem;
+  gap: .9rem;
 }
 
 .avis-avatar {
@@ -645,29 +658,23 @@ a { text-decoration: none; color: inherit; }
 .avis-name {
   font-family: var(--font-h2);
   font-weight: 700;
-  font-size: .95rem;
+  font-size: 1rem;
   color: var(--lavande);
+  display: block;
+  margin-bottom: .2rem;
 }
 
 .avis-stars {
-  font-size: 1.4rem;
+  font-size: 1.15rem;
   color: var(--orange);
-  letter-spacing: .06em;
+  letter-spacing: .05em;
   line-height: 1;
 }
 
 .avis-text {
-  font-size: .88rem;
+  font-size: .9rem;
   line-height: 1.65;
   color: #444;
-}
-
-/* Dots */
-.avis-dots {
-  display: flex;
-  justify-content: center;
-  gap: .5rem;
-  margin-top: 1.5rem;
 }
 
 /* ═══════════════════════════════════════════
