@@ -5,6 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Génération Coquille</title>
   <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
 </head>
 <body>
 
@@ -16,8 +17,8 @@
       </a>
       <nav id="nav">
         <a href="#contenus">Contenus des box</a>
-        <a href="#box-suspendues">Box suspendues</a>
         <a href="#partenaires">Nos partenaires</a>
+        <a href="#box-suspendues">Box suspendues</a>
         <a href="#vision">Notre vision</a>
         <a href="#contact" class="nav-cta">Nous contacter</a>
       </nav>
@@ -267,26 +268,15 @@
   <!-- NOS PARTENAIRES -->
   <section id="partenaires">
     <div class="container">
-      <h2 class="section-title">Nos partenaires</h2>
-      <p class="section-intro center">Génération Coquille réunit des acteurs engagés de l'éducation et de l'économie sociale et solidaire.</p>
-      <div class="partners-grid">
-        <div class="partner-card">
-          <div class="partner-icon">🏫</div>
-          <p>Professionnels de l'éducation</p>
-        </div>
-        <div class="partner-card">
-          <div class="partner-icon">🤝</div>
-          <p>Acteurs de l'ESS</p>
-        </div>
-        <div class="partner-card">
-          <div class="partner-icon">📚</div>
-          <p>Auteurs & éditeurs jeunesse</p>
-        </div>
-        <div class="partner-card">
-          <div class="partner-icon">🎙️</div>
-          <p>Podcasteurs & créateurs</p>
-        </div>
-      </div>
+      <h2 class="section-title">Où nous retrouver</h2>
+      <p class="section-intro center">Retrouvez nos partenaires partout en France. Cliquez sur un point pour découvrir la boutique.</p>
+    </div>
+
+    <div class="map-wrap">
+      <div id="partenaireMap"></div>
+    </div>
+
+    <div class="container partners-cta">
       <p class="partners-cta-text">Vous souhaitez rejoindre l'aventure ?</p>
       <a href="#contact" class="btn-primary">Devenir partenaire</a>
     </div>
@@ -315,6 +305,7 @@
     <p>© 2025 Génération Coquille – les Escargott·es</p>
   </footer>
 
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
   <script src="script.js"></script>
 </body>
 </html>

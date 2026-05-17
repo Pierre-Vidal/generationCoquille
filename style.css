@@ -783,32 +783,47 @@ a { text-decoration: none; color: inherit; }
   text-align: center;
 }
 
-.partners-grid {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 1.5rem;
+/* Carte Leaflet */
+.map-wrap {
   margin: 2.5rem 0;
+  border-top: 3px solid var(--dark);
+  border-bottom: 3px solid var(--dark);
+}
+#partenaireMap {
+  width: 100%;
+  height: 480px;
 }
 
-.partner-card {
-  background: var(--bg);
-  border: 2px solid var(--dark);
-  border-radius: 18px;
-  padding: 2rem 1rem;
-  box-shadow: 4px 4px 0 var(--dark);
-  transition: transform .2s, box-shadow .2s;
+/* Popup Leaflet custom */
+.leaflet-popup-content-wrapper {
+  border: 2px solid var(--dark) !important;
+  border-radius: 16px !important;
+  box-shadow: 4px 4px 0 var(--dark) !important;
+  font-family: var(--font-body) !important;
 }
-.partner-card:hover {
-  transform: translate(-2px,-2px);
-  box-shadow: 6px 6px 0 var(--dark);
-}
-.partner-icon { font-size: 2.4rem; margin-bottom: .8rem; }
-.partner-card p {
+.leaflet-popup-tip { display: none; }
+.map-popup-name {
   font-family: var(--font-h2);
   font-weight: 700;
-  font-size: .9rem;
+  font-size: 1rem;
+  color: var(--lavande);
+  margin-bottom: .3rem;
+}
+.map-popup-type {
+  font-size: .82rem;
+  color: #888;
+  margin-bottom: .4rem;
+}
+.map-popup-addr {
+  font-size: .85rem;
+  color: var(--dark);
 }
 
+/* CTA partenaire */
+.partners-cta {
+  text-align: center;
+  padding-top: 1rem;
+}
 .partners-cta-text {
   font-family: var(--font-subtitle);
   font-weight: 700;
