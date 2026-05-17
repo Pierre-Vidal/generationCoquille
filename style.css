@@ -684,7 +684,6 @@ a { text-decoration: none; color: inherit; }
   position: relative;
   background: var(--bg);
   padding: 3rem 0 6rem;
-  background: white;
   overflow: hidden;
 }
 #vision .vision-blobs {
@@ -803,8 +802,6 @@ a { text-decoration: none; color: inherit; }
 .section-bg-orange {
   background: white;
   padding: 6rem 0;
-  border-top: 3px solid var(--dark);
-  border-bottom: 3px solid var(--dark);
 }
 
 .section-intro {
