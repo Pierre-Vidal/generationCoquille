@@ -857,25 +857,26 @@ a { text-decoration: none; color: inherit; }
 .suspended-logos {
   display: flex;
   align-items: center;
-  gap: 1rem;
-  margin-bottom: 1.2rem;
+  justify-content: center;
+  gap: 2rem;
+  margin-bottom: 2.5rem;
 }
 
 .suspended-logo-afad {
-  height: 48px;
+  height: 80px;
   width: auto;
   object-fit: contain;
 }
 
 .suspended-logo-gc {
-  height: 48px;
+  height: 80px;
   width: auto;
   object-fit: contain;
 }
 
 .suspended-logos-x {
   font-family: var(--font-h2);
-  font-size: 1.4rem;
+  font-size: 2rem;
   color: var(--dark);
   line-height: 1;
 }
