@@ -693,12 +693,58 @@ a { text-decoration: none; color: inherit; }
   margin-bottom: 3rem;
 }
 
+/* Layout vision : Slo à gauche, valeurs à droite */
+.vision-layout {
+  display: grid;
+  grid-template-columns: 280px 1fr;
+  gap: 4rem;
+  align-items: center;
+}
+
+/* Colonne Slo */
+.vision-slo {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: .8rem;
+}
+
+.slo-img {
+  width: 100%;
+  max-width: 260px;
+  height: auto;
+  transform-origin: bottom center;
+  animation: slo-sway 3.5s ease-in-out infinite;
+  filter: drop-shadow(4px 6px 0 rgba(0,0,0,.10));
+}
+
+/* Balancement doux : légère rotation + translation verticale */
+@keyframes slo-sway {
+  0%   { transform: rotate(-2deg) translateY(0); }
+  30%  { transform: rotate(2deg)  translateY(-6px); }
+  60%  { transform: rotate(-1.5deg) translateY(-2px); }
+  100% { transform: rotate(-2deg) translateY(0); }
+}
+
+.slo-name {
+  font-family: var(--font-title);
+  font-size: 1.8rem;
+  color: var(--jaune-vert);
+  letter-spacing: .05em;
+}
+
 .values-list {
   display: flex;
   flex-direction: column;
   gap: 1.2rem;
-  max-width: 780px;
-  margin: 0 auto;
+}
+
+@media (max-width: 760px) {
+  .vision-layout {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+  .slo-img { max-width: 180px; }
 }
 
 .value-card {
