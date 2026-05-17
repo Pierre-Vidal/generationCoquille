@@ -693,6 +693,17 @@ a { text-decoration: none; color: inherit; }
   margin-bottom: 3rem;
 }
 
+.vision-subtitle {
+  font-family: var(--font-subtitle);
+  font-size: 1.05rem;
+  font-weight: 700;
+  font-style: italic;
+  color: var(--jaune-vert);
+  text-align: center;
+  margin-top: -2rem;
+  margin-bottom: 2.5rem;
+}
+
 /* Layout vision : Slo à gauche, valeurs à droite */
 .vision-layout {
   display: grid;
