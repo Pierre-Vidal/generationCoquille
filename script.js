@@ -103,8 +103,9 @@ sections.forEach(s => observer.observe(s));
     dotsEl.querySelectorAll('.cq-dot').forEach((d, i) =>
       d.classList.toggle('active', i === idx)
     );
+    const maxIdx = slider.track.details.maxIdx;
     prev.disabled = idx === 0;
-    next.disabled = idx === slider.slides.length - 1;
+    next.disabled = idx >= maxIdx;
   }
 
   prev.addEventListener('click', () => slider.prev());
