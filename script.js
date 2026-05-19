@@ -129,6 +129,49 @@ sections.forEach(s => observer.observe(s));
   });
 })();
 
+// modale précommande
+(function () {
+  const overlay = document.getElementById('precommandeOverlay');
+  const openBtn = document.getElementById('openPrecommande');
+  const closeBtn = document.getElementById('closePrecommande');
+  if (!overlay || !openBtn) return;
+
+  openBtn.addEventListener('click', () => {
+    overlay.classList.add('open');
+    document.body.style.overflow = 'hidden';
+  });
+  const close = () => {
+    overlay.classList.remove('open');
+    document.body.style.overflow = '';
+  };
+  closeBtn.addEventListener('click', close);
+  overlay.addEventListener('click', e => { if (e.target === overlay) close(); });
+  document.addEventListener('keydown', e => { if (e.key === 'Escape') close(); });
+
+  // décompte vers le 3 mars 2026
+  const target = new Date('2026-03-03T00:00:00');
+  const pad = n => String(n).padStart(2, '0');
+  const els = {
+    d: document.getElementById('pcDays'),
+    h: document.getElementById('pcHours'),
+    m: document.getElementById('pcMinutes'),
+    s: document.getElementById('pcSeconds'),
+  };
+  function tick() {
+    const diff = target - Date.now();
+    if (diff <= 0) {
+      els.d.textContent = els.h.textContent = els.m.textContent = els.s.textContent = '00';
+      return;
+    }
+    els.d.textContent = pad(Math.floor(diff / 86400000));
+    els.h.textContent = pad(Math.floor((diff % 86400000) / 3600000));
+    els.m.textContent = pad(Math.floor((diff % 3600000) / 60000));
+    els.s.textContent = pad(Math.floor((diff % 60000) / 1000));
+  }
+  tick();
+  setInterval(tick, 1000);
+})();
+
 // lightbox
 const lightbox = document.createElement('div');
 lightbox.id = 'lightbox';

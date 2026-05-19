@@ -89,7 +89,7 @@
                 <p class="subtitle-font">Thème : Les stéréotypes sur la couleur</p>
                 <p>Abordons la question des stéréotypes de genre par un <strong>exemple concret</strong> : l'univers des filles souvent bordé de rose et de couleurs douces, et l'univers des garçons ouvert au bleu et aux couleurs plus intenses.</p>
                 <p class="highlight-text">Et si il n'y avait plus de couleur du genre ?</p>
-                <a href="#contact" class="btn-primary btn-precommande">Accéder à la précommande</a>
+                <button class="btn-primary btn-precommande" id="openPrecommande">Accéder à la précommande</button>
               </div>
               <div class="box-contents-grid">
                 <div class="box-content-item">
@@ -339,6 +339,113 @@
   <footer>
     <p>© 2025 Génération Coquille</p>
   </footer>
+
+  <!-- MODALE PRÉCOMMANDE -->
+  <div id="precommandeOverlay" class="pc-overlay" role="dialog" aria-modal="true" aria-label="Précommande">
+    <div class="pc-modal">
+      <button class="pc-close" id="closePrecommande" aria-label="Fermer">✕</button>
+
+      <!-- En-tête -->
+      <div class="pc-header">
+        <h2 class="pc-title">Précommande notre 1ère coquille</h2>
+        <p class="pc-subtitle">Soutenez le projet pour sa sortie le 3 mars</p>
+        <!-- Décompte -->
+        <div class="pc-countdown" id="pcCountdown">
+          <div class="pc-count-block"><span id="pcDays">--</span><label>jours</label></div>
+          <div class="pc-count-sep">:</div>
+          <div class="pc-count-block"><span id="pcHours">--</span><label>heures</label></div>
+          <div class="pc-count-sep">:</div>
+          <div class="pc-count-block"><span id="pcMinutes">--</span><label>min</label></div>
+          <div class="pc-count-sep">:</div>
+          <div class="pc-count-block"><span id="pcSeconds">--</span><label>sec</label></div>
+        </div>
+      </div>
+
+      <!-- Corps : formulaire + descriptif -->
+      <div class="pc-body">
+
+        <!-- Formulaire -->
+        <div class="pc-form-col">
+          <h3 class="pc-col-title">Votre commande</h3>
+
+          <div class="pc-field-group">
+            <label>Prénom</label>
+            <input type="text" placeholder="Marie" />
+          </div>
+          <div class="pc-field-group">
+            <label>Nom</label>
+            <input type="text" placeholder="Dupont" />
+          </div>
+          <div class="pc-field-group">
+            <label>E-mail</label>
+            <input type="email" placeholder="marie@exemple.fr" />
+          </div>
+          <div class="pc-field-group">
+            <label>Adresse de livraison</label>
+            <input type="text" placeholder="12 rue des Fleurs, 75001 Paris" />
+          </div>
+
+          <div class="pc-divider"></div>
+          <h4 class="pc-payment-title">Paiement</h4>
+
+          <div class="pc-field-group">
+            <label>Numéro de carte</label>
+            <div class="pc-card-input">
+              <input type="text" placeholder="1234 5678 9012 3456" maxlength="19" id="pcCardNum" />
+              <span class="pc-card-icon">💳</span>
+            </div>
+          </div>
+          <div class="pc-field-row">
+            <div class="pc-field-group">
+              <label>Expiration</label>
+              <input type="text" placeholder="MM/AA" maxlength="5" />
+            </div>
+            <div class="pc-field-group">
+              <label>CVV</label>
+              <input type="text" placeholder="123" maxlength="3" />
+            </div>
+          </div>
+
+          <div class="pc-price-summary">
+            <span>La couleur du genre</span>
+            <strong>29,90 €</strong>
+          </div>
+
+          <button class="pc-submit">Confirmer la précommande</button>
+          <p class="pc-secure">🔒 Paiement sécurisé — Débité à l'expédition le 3 mars</p>
+        </div>
+
+        <!-- Descriptif box -->
+        <div class="pc-box-col">
+          <h3 class="pc-col-title">Ce que contient la box</h3>
+          <div class="section-tag" style="margin-bottom:1rem">Notre première COQUILLE</div>
+          <h4 class="pc-box-name">La couleur du genre</h4>
+          <p class="pc-box-theme">Thème : Les stéréotypes sur la couleur</p>
+          <p class="pc-box-desc">Abordons la question des stéréotypes de genre par un <strong>exemple concret</strong> : l'univers des filles souvent bordé de rose et de couleurs douces, et l'univers des garçons ouvert au bleu et aux couleurs plus intenses.</p>
+          <p class="pc-box-highlight">Et si il n'y avait plus de couleur du genre ?</p>
+          <div class="pc-contents-grid">
+            <div class="pc-content-item">
+              <img src="assets/page_box/journal.png" alt="Magazine parents" />
+              <span class="box-label label-purple">Magazine parents</span>
+            </div>
+            <div class="pc-content-item">
+              <img src="assets/page_box/livre_le_rose.jpg" alt="Livre jeunesse" />
+              <span class="box-label label-purple">Livre jeunesse</span>
+            </div>
+            <div class="pc-content-item">
+              <img src="assets/page_box/coloriage.png" alt="Activité ludique" />
+              <span class="box-label label-purple">Activité ludique</span>
+            </div>
+            <div class="pc-content-item">
+              <div class="audio-icon">🎧</div>
+              <span class="box-label label-purple">Histoire audio</span>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
 
   <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
   <script src="script.js"></script>
