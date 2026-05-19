@@ -149,7 +149,7 @@ sections.forEach(s => observer.observe(s));
   document.addEventListener('keydown', e => { if (e.key === 'Escape') close(); });
 
   // décompte vers le 3 mars 2026
-  const target = new Date('2026-03-03T00:00:00');
+  const target = new Date('2027-03-03T00:00:00');
   const pad = n => String(n).padStart(2, '0');
   const els = {
     d: document.getElementById('pcDays'),
