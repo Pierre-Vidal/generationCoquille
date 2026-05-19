@@ -276,16 +276,18 @@ a { text-decoration: none; color: inherit; }
   margin-bottom: 3rem;
 }
 .coquille-category-title {
-  font-family: var(--font-h2);
+  font-family: 'Luckiest Guy', var(--font-h2);
   font-size: 2.8rem;
-  font-weight: 700;
-  color: var(--dark);
+  font-weight: 400;
+  color: #FFAC33;
   margin-bottom: .5rem;
 }
 .coquille-category-sub {
-  font-family: var(--font-body);
+  font-family: var(--font-subtitle);
   font-size: 1.05rem;
-  color: #666;
+  font-weight: 700;
+  font-style: italic;
+  color: var(--jaune-vert);
 }
 
 /* Nom de la coquille */
@@ -806,10 +808,14 @@ a { text-decoration: none; color: inherit; }
 }
 
 .section-intro {
+  font-family: var(--font-subtitle);
+  font-size: 1.05rem;
+  font-weight: 700;
+  font-style: italic;
+  color: var(--jaune-vert);
   text-align: center;
   max-width: 620px;
   margin: -1.5rem auto 3rem;
-  font-size: 1.05rem;
   line-height: 1.7;
 }
 .section-intro.center { margin-top: 0; }
