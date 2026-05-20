@@ -106,11 +106,11 @@ sections.forEach(s => observer.observe(s));
   });
 
   const partenaires = [
-    { nom: 'Librairie Les Mots Doux',  type: 'Librairie jeunesse',  adresse: '12 rue de la Paix, Lyon',       lat: 45.7640, lng: 4.8357  },
-    { nom: 'Espace ESS Bordeaux',       type: 'Tiers-lieu éducatif', adresse: '5 allée des Arts, Bordeaux',   lat: 44.8378, lng: -0.5792 },
-    { nom: 'Atelier Parenthèse',        type: 'Atelier parents',     adresse: '8 rue des Lilas, Nantes',      lat: 47.2184, lng: -1.5536 },
-    { nom: 'Boutique Imagine',          type: 'Boutique solidaire',  adresse: '3 bd Voltaire, Paris',         lat: 48.8566, lng: 2.3522  },
-    { nom: 'Médiathèque du Midi',       type: 'Médiathèque',         adresse: '22 av. Jean Jaurès, Toulouse', lat: 43.6047, lng: 1.4442  },
+    { nom: 'Librairie Les Mots Doux',  type: 'Librairie jeunesse',  adresse: '12 rue de la Paix, Lyon',       horaires: 'Mar–Sam : 10h–19h / Dim : 11h–17h',  lat: 45.7640, lng: 4.8357  },
+    { nom: 'Espace ESS Bordeaux',       type: 'Tiers-lieu éducatif', adresse: '5 allée des Arts, Bordeaux',   horaires: 'Lun–Ven : 9h–18h / Sam : 10h–14h',   lat: 44.8378, lng: -0.5792 },
+    { nom: 'Atelier Parenthèse',        type: 'Atelier parents',     adresse: '8 rue des Lilas, Nantes',      horaires: 'Mar–Sam : 9h30–18h30',                lat: 47.2184, lng: -1.5536 },
+    { nom: 'Boutique Imagine',          type: 'Boutique solidaire',  adresse: '3 bd Voltaire, Paris',         horaires: 'Lun–Sam : 10h–20h / Dim : 11h–18h',  lat: 48.8566, lng: 2.3522  },
+    { nom: 'Médiathèque du Midi',       type: 'Médiathèque',         adresse: '22 av. Jean Jaurès, Toulouse', horaires: 'Mar–Ven : 10h–19h / Sam : 10h–17h',  lat: 43.6047, lng: 1.4442  },
   ];
 
   function showInfo(p) {
@@ -119,6 +119,7 @@ sections.forEach(s => observer.observe(s));
       <span class="map-info-badge">${p.type}</span>
       <hr class="map-info-divider" />
       <p class="map-info-addr">📍 ${p.adresse}</p>
+      <p class="map-info-hours">🕐 ${p.horaires}</p>
     `;
   }
 

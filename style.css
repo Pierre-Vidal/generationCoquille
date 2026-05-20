@@ -997,7 +997,7 @@ a { text-decoration: none; color: inherit; }
   border-radius: 50px;
   border: 1.5px solid var(--dark);
 }
-.map-info-addr {
+.map-info-addr, .map-info-hours {
   font-size: .9rem;
   color: #555;
   line-height: 1.6;
