@@ -545,8 +545,6 @@ a { text-decoration: none; color: inherit; }
 .label-purple { color: var(--lavande); }
 
 .btn-precommande {
-  background: var(--rouge-vif);
-  color: white;
   font-size: 1.1rem;
   padding: .9rem 2.2rem;
 }
