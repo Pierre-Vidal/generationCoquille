@@ -185,7 +185,7 @@ document.addEventListener('keydown', e => {
 
 // event delegation lightbox
 document.addEventListener('click', e => {
-  if (e.target.tagName === 'IMG' && e.target.closest('.box-content-item')) {
+  if (e.target.tagName === 'IMG' && (e.target.closest('.box-content-item') || e.target.closest('.pc-content-item'))) {
     lightbox.querySelector('img').src = e.target.src;
     lightbox.classList.add('open');
   }
