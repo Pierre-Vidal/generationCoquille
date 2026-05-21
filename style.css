@@ -761,15 +761,23 @@ a { text-decoration: none; color: inherit; }
   bottom: 0;
   height: 90px;
   width: auto;
-  animation: slo-walk 16s steps(28, end) infinite;
+  animation: slo-walk 18s ease-in-out infinite;
   filter: drop-shadow(3px 4px 0 rgba(0,0,0,.10));
 }
 @keyframes slo-walk {
-  0%   { left: -120px; transform: scaleX(-1); }
+  0%   { left: -120px;            transform: scaleX(-1); }
+  15%  { left: 18%;               transform: scaleX(-1); }
+  25%  { left: 20%;               transform: scaleX(-1); }
+  40%  { left: 55%;               transform: scaleX(-1); }
+  47%  { left: 57%;               transform: scaleX(-1); }
   49%  { left: calc(100% + 20px); transform: scaleX(-1); }
-  50%  { left: calc(100% + 20px); transform: scaleX(1); }
-  99%  { left: -120px; transform: scaleX(1); }
-  100% { left: -120px; transform: scaleX(-1); }
+  50%  { left: calc(100% + 20px); transform: scaleX(1);  }
+  65%  { left: 70%;               transform: scaleX(1);  }
+  72%  { left: 68%;               transform: scaleX(1);  }
+  85%  { left: 30%;               transform: scaleX(1);  }
+  93%  { left: 28%;               transform: scaleX(1);  }
+  99%  { left: -120px;            transform: scaleX(1);  }
+  100% { left: -120px;            transform: scaleX(-1); }
 }
 
 .slo-desc {
