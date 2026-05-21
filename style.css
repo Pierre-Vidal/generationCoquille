@@ -748,6 +748,30 @@ a { text-decoration: none; color: inherit; }
   100% { transform: rotate(-2deg) translateY(0); }
 }
 
+/* Slo qui marche en bas de la section partenaires */
+.slo-walk-wrap {
+  width: 100%;
+  overflow: hidden;
+  height: 100px;
+  position: relative;
+  margin-top: 2rem;
+}
+.slo-walk {
+  position: absolute;
+  bottom: 0;
+  height: 90px;
+  width: auto;
+  animation: slo-walk 14s linear infinite;
+  filter: drop-shadow(3px 4px 0 rgba(0,0,0,.10));
+}
+@keyframes slo-walk {
+  0%   { left: -120px; transform: scaleX(1); }
+  49%  { left: calc(100% + 20px); transform: scaleX(1); }
+  50%  { left: calc(100% + 20px); transform: scaleX(-1); }
+  99%  { left: -120px; transform: scaleX(-1); }
+  100% { left: -120px; transform: scaleX(1); }
+}
+
 .slo-desc {
   font-family: var(--font-subtitle);
   font-size: .92rem;
@@ -932,7 +956,7 @@ a { text-decoration: none; color: inherit; }
    NOS PARTENAIRES
 ═══════════════════════════════════════════ */
 #partenaires {
-  padding: 6rem 0;
+  padding: 6rem 0 0;
   background: white;
   text-align: center;
 }
