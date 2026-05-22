@@ -1091,9 +1091,12 @@ a { text-decoration: none; color: inherit; }
   position: relative;
 }
 
+.blog-track-wrap {
+  overflow: hidden;
+}
+
 .blog-track {
   display: flex;
-  overflow: hidden;
   transition: transform .4s ease;
 }
 
