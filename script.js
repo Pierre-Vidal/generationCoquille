@@ -163,6 +163,22 @@ sections.forEach(s => observer.observe(s));
   goTo(0);
 })();
 
+// modale article blog
+(function () {
+  const overlay = document.getElementById('articleOverlay');
+  const openBtn = document.getElementById('openArticle1');
+  const closeBtn = document.getElementById('closeArticle');
+  if (!overlay || !openBtn) return;
+
+  const open = () => { overlay.classList.add('open'); document.body.style.overflow = 'hidden'; };
+  const close = () => { overlay.classList.remove('open'); document.body.style.overflow = ''; };
+
+  openBtn.addEventListener('click', open);
+  closeBtn.addEventListener('click', close);
+  overlay.addEventListener('click', e => { if (e.target === overlay) close(); });
+  document.addEventListener('keydown', e => { if (e.key === 'Escape') close(); });
+})();
+
 // modale précommande
 (function () {
   const overlay = document.getElementById('precommandeOverlay');
