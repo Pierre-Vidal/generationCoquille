@@ -19,7 +19,7 @@
         <a href="#contenus">Contenus des box</a>
         <a href="#partenaires">Où nous retrouver</a>
         <a href="#vision">Notre vision</a>
-        <a href="#box-suspendues">Box suspendues</a>
+        <a href="#box-suspendues">Coquilles suspendues</a>
         <a href="#blog">Le blog</a>
         <a href="#contact" class="nav-cta">Nous contacter</a>
       </nav>
@@ -277,6 +277,13 @@
               <p>Une approche dans laquelle <strong>toustes peuvent se reconnaître</strong>, sans assignation ni stéréotype de genre.</p>
             </div>
           </div>
+          <div class="value-card" style="--c: #FB8265">
+            <div>
+              <h3>Impact social</h3>
+              <p>Parce qu'une bonne idée ne vaut rien si elle ne profite qu'à certain·es, nous construisons un projet <strong>accessible à toutes les familles</strong>, quelles que soient leurs ressources.</p>
+              <a href="#box-suspendues" class="btn-impact">Prolonger notre impact</a>
+            </div>
+          </div>
         </div>
 
       </div>
@@ -287,8 +294,8 @@
   <section id="box-suspendues">
     <div class="section-bg-orange">
       <div class="container">
-        <h2 class="section-title">Box suspendues</h2>
-        <p class="section-intro">Parce que l'accessibilité est une question prioritaire pour nous, nous refusons la pression budgétaire. Au cœur de notre projet, nous pensons des <strong>box suspendues</strong> — des box distribuées gratuitement aux familles qui ne pourraient pas se les offrir.</p>
+        <h2 class="section-title">Coquilles suspendues</h2>
+        <p class="section-intro">Parce que l'accessibilité est une question prioritaire pour nous, nous refusons la pression budgétaire. Au cœur de notre projet, nous pensons des <strong>coquilles suspendues</strong> : des coquilles distribuées gratuitement aux familles qui ne pourraient pas se les offrir.</p>
 
         <!-- Logos partenariat -->
         <div class="suspended-logos">
@@ -303,9 +310,9 @@
             <img src="assets/afad/image d'enfant.webp" alt="Enfant accompagné par l'AFAD" class="suspended-child-img" />
           </div>
           <div class="suspended-text">
-            <p class="suspended-label">Pour notre première box, nous mettons à l'honneur</p>
+            <p class="suspended-label">Pour notre première coquille, nous mettons à l'honneur</p>
             <h3 class="suspended-partner-name">AFAD — Aide Familiale À Domicile</h3>
-            <p class="suspended-partner-desc">L'AFAD est une association engagée depuis plus de 75 ans auprès des familles et des personnes fragilisées. Elle intervient au quotidien pour accompagner les familles dans les moments difficiles : naissance, maladie, handicap, précarité. En partenariat avec l'AFAD, nos box seront remises directement aux familles accompagnées par leurs équipes de terrain, là où le besoin est le plus fort.</p>
+            <p class="suspended-partner-desc">L'AFAD est une association engagée depuis plus de 75 ans auprès des familles et des personnes fragilisées. Elle intervient au quotidien pour accompagner les familles dans les moments difficiles : naissance, maladie, handicap, précarité. En partenariat avec l'AFAD, nos coquilles seront remises directement aux familles accompagnées par leurs équipes de terrain, là où le besoin est le plus fort.</p>
           </div>
         </div>
       </div>
@@ -316,9 +323,63 @@
   <section id="blog">
     <div class="container">
       <h2 class="section-title">Le blog</h2>
-      <div class="blog-soon">
-        <p>Des articles, des ressources et des réflexions arrivent bientôt.</p>
+      <p class="section-intro">Des réflexions, des ressources et des coulisses du projet.</p>
+
+      <div class="blog-carousel">
+        <div class="blog-track" id="blogTrack">
+
+          <!-- Article 1 -->
+          <article class="blog-card">
+            <div class="blog-card-img" style="background: linear-gradient(135deg, #CBB8EA, #A177DB);">
+              <span class="blog-card-tag">Origine du projet</span>
+            </div>
+            <div class="blog-card-body">
+              <p class="blog-card-date">Mai 2025</p>
+              <h3 class="blog-card-title">Comment un projet étudiant est devenu Génération Coquille</h3>
+              <p class="blog-card-excerpt">Tout a commencé dans une salle de cours, avec une question simple : pourquoi les jouets ont-ils un genre ? Ce qui devait être un travail de fin d'études s'est transformé en vrai projet de société — voici comment.</p>
+              <a href="#contact" class="blog-card-link">Lire la suite →</a>
+            </div>
+          </article>
+
+          <!-- Article 2 placeholder -->
+          <article class="blog-card blog-card-soon">
+            <div class="blog-card-img" style="background: linear-gradient(135deg, #DBF59D, #7D9F00);">
+              <span class="blog-card-tag">À venir</span>
+            </div>
+            <div class="blog-card-body">
+              <p class="blog-card-date">Bientôt</p>
+              <h3 class="blog-card-title">Les stéréotypes de genre expliqués aux enfants</h3>
+              <p class="blog-card-excerpt">Comment parler de genre à un enfant de 6 ans sans le perdre ? On partage nos approches pédagogiques testées en famille.</p>
+              <span class="blog-card-link-soon">Bientôt disponible</span>
+            </div>
+          </article>
+
+          <!-- Article 3 placeholder -->
+          <article class="blog-card blog-card-soon">
+            <div class="blog-card-img" style="background: linear-gradient(135deg, #FFDDAB, #FFAC33);">
+              <span class="blog-card-tag">À venir</span>
+            </div>
+            <div class="blog-card-body">
+              <p class="blog-card-date">Bientôt</p>
+              <h3 class="blog-card-title">Rencontre avec l'AFAD : une solidarité en actes</h3>
+              <p class="blog-card-excerpt">Pourquoi nous avons choisi l'AFAD comme premier partenaire de nos coquilles suspendues, et ce que ça signifie concrètement.</p>
+              <span class="blog-card-link-soon">Bientôt disponible</span>
+            </div>
+          </article>
+
+        </div>
+
+        <div class="blog-controls">
+          <button class="blog-btn" id="blogPrev" aria-label="Article précédent">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"/></svg>
+          </button>
+          <div class="blog-dots" id="blogDots"></div>
+          <button class="blog-btn" id="blogNext" aria-label="Article suivant">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg>
+          </button>
+        </div>
       </div>
+
     </div>
   </section>
 

@@ -130,6 +130,39 @@ sections.forEach(s => observer.observe(s));
   });
 })();
 
+// carousel blog
+(function () {
+  const track = document.getElementById('blogTrack');
+  const dotsEl = document.getElementById('blogDots');
+  const prev = document.getElementById('blogPrev');
+  const next = document.getElementById('blogNext');
+  if (!track) return;
+
+  const cards = track.querySelectorAll('.blog-card');
+  const total = cards.length;
+  let current = 0;
+
+  cards.forEach((_, i) => {
+    const dot = document.createElement('button');
+    dot.className = 'blog-dot' + (i === 0 ? ' active' : '');
+    dot.setAttribute('aria-label', 'Article ' + (i + 1));
+    dot.addEventListener('click', () => goTo(i));
+    dotsEl.appendChild(dot);
+  });
+
+  function goTo(i) {
+    current = i;
+    track.style.transform = 'translateX(-' + (current * 100) + '%)';
+    dotsEl.querySelectorAll('.blog-dot').forEach((d, j) => d.classList.toggle('active', j === current));
+    prev.disabled = current === 0;
+    next.disabled = current === total - 1;
+  }
+
+  prev.addEventListener('click', () => { if (current > 0) goTo(current - 1); });
+  next.addEventListener('click', () => { if (current < total - 1) goTo(current + 1); });
+  goTo(0);
+})();
+
 // modale précommande
 (function () {
   const overlay = document.getElementById('precommandeOverlay');
