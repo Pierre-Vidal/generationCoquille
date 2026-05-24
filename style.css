@@ -1323,15 +1323,114 @@ a { text-decoration: none; color: inherit; }
 .contact-inner {
   position: relative;
   z-index: 2;
+}
+
+.contact-sub {
+  font-family: var(--font-subtitle);
+  font-style: italic;
+  font-size: 1.05rem;
+  color: var(--dark);
   text-align: center;
+  margin-bottom: 2.5rem;
+}
+
+.contact-layout {
+  display: grid;
+  grid-template-columns: 1fr 280px;
+  gap: 3rem;
+  align-items: start;
+}
+
+.contact-form {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+  background: white;
+  border: 2px solid var(--dark);
+  border-radius: 20px;
+  box-shadow: 6px 6px 0 var(--dark);
+  padding: 2rem;
+}
+
+.contact-field {
+  display: flex;
+  flex-direction: column;
+  gap: .35rem;
+}
+.contact-field-full { grid-column: 1 / -1; }
+
+.contact-field label {
+  font-size: .82rem;
+  font-weight: 600;
+  color: #555;
+}
+.contact-field input,
+.contact-field select,
+.contact-field textarea {
+  border: 2px solid #ddd;
+  border-radius: 10px;
+  padding: .65rem .9rem;
+  font-family: var(--font-body);
+  font-size: .95rem;
+  outline: none;
+  transition: border-color .2s;
+  width: 100%;
+  box-sizing: border-box;
+  background: white;
+}
+.contact-field input:focus,
+.contact-field select:focus,
+.contact-field textarea:focus { border-color: #FFAC33; }
+.contact-field textarea { resize: vertical; }
+
+.contact-submit { width: 100%; cursor: pointer; border: 2px solid var(--dark); }
+
+.contact-info {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: .8rem;
+}
+.contact-info-text {
+  font-size: .9rem;
+  color: rgba(255,255,255,.8);
+}
+
+/* Badge âge kit */
+.kit-age {
+  display: inline-block;
+  background: #FFAC33;
+  color: var(--dark);
+  font-family: var(--font-h2);
+  font-size: .8rem;
+  font-weight: 700;
+  padding: .25rem .8rem;
+  border-radius: 50px;
+  border: 2px solid var(--dark);
+  box-shadow: 2px 2px 0 var(--dark);
+  margin-bottom: .5rem;
+}
+
+/* Bouton lire la suite blog */
+.blog-read-btn {
+  font-size: .9rem;
+  padding: .55rem 1.4rem;
+  cursor: pointer;
+  border: 2px solid var(--dark);
+}
+
+@media (max-width: 700px) {
+  .contact-layout { grid-template-columns: 1fr; }
+  .contact-form { grid-template-columns: 1fr; }
 }
 
 .contact-title {
-  font-family: var(--font-h2);
+  font-family: 'Luckiest Guy', var(--font-h2);
   font-size: 3rem;
-  font-weight: 700;
-  color: var(--lavande);
-  -webkit-text-stroke: 2px var(--dark);
+  font-weight: 400;
+  color: #FFAC33;
+  text-align: center;
   margin-bottom: 1rem;
 }
 

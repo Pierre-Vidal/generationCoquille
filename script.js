@@ -163,6 +163,21 @@ sections.forEach(s => observer.observe(s));
   goTo(0);
 })();
 
+// formulaire contact (faux envoi)
+function handleContactSubmit(e) {
+  e.preventDefault();
+  const btn = e.target.querySelector('.contact-submit');
+  btn.textContent = 'Message envoyé ✓';
+  btn.style.background = '#7D9F00';
+  btn.disabled = true;
+  setTimeout(() => {
+    btn.textContent = 'Envoyer le message';
+    btn.style.background = '';
+    btn.disabled = false;
+    e.target.reset();
+  }, 3000);
+}
+
 // modale article blog
 (function () {
   const overlay = document.getElementById('articleOverlay');
