@@ -237,21 +237,39 @@ function handleContactSubmit(e) {
   setInterval(tick, 1000);
 })();
 
-// lightbox
+// lightbox (images + vidéos)
 const lightbox = document.createElement('div');
 lightbox.id = 'lightbox';
-lightbox.innerHTML = '<img />';
+lightbox.innerHTML = '<img /><video controls></video>';
 document.body.appendChild(lightbox);
 
-lightbox.addEventListener('click', () => lightbox.classList.remove('open'));
-document.addEventListener('keydown', e => {
-  if (e.key === 'Escape') lightbox.classList.remove('open');
-});
+const lbImg   = lightbox.querySelector('img');
+const lbVideo = lightbox.querySelector('video');
 
-// event delegation lightbox
+const closeLightbox = () => {
+  lightbox.classList.remove('open');
+  lbVideo.pause();
+  lbVideo.src = '';
+};
+
+lightbox.addEventListener('click', e => { if (e.target === lightbox) closeLightbox(); });
+document.addEventListener('keydown', e => { if (e.key === 'Escape') closeLightbox(); });
+
 document.addEventListener('click', e => {
-  if (e.target.tagName === 'IMG' && (e.target.closest('.box-content-item') || e.target.closest('.pc-content-item'))) {
-    lightbox.querySelector('img').src = e.target.src;
+  const inItem = e.target.closest('.box-content-item') || e.target.closest('.pc-content-item');
+  if (!inItem) return;
+
+  if (e.target.tagName === 'IMG') {
+    lbImg.src = e.target.src;
+    lbImg.style.display = '';
+    lbVideo.style.display = 'none';
     lightbox.classList.add('open');
+  } else if (e.target.tagName === 'VIDEO' || e.target.classList.contains('box-content-video')) {
+    const vid = inItem.querySelector('video');
+    lbVideo.src = vid.src;
+    lbVideo.style.display = '';
+    lbImg.style.display = 'none';
+    lightbox.classList.add('open');
+    lbVideo.play();
   }
 });

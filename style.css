@@ -523,7 +523,8 @@ a { text-decoration: none; color: inherit; }
   cursor: zoom-out;
 }
 #lightbox.open { display: flex; }
-#lightbox img {
+#lightbox img,
+#lightbox video {
   max-width: 90vw;
   max-height: 90vh;
   object-fit: contain;
