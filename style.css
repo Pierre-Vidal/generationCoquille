@@ -450,7 +450,8 @@ a { text-decoration: none; color: inherit; }
   transform: translate(-2px,-2px);
   box-shadow: 6px 6px 0 var(--dark);
 }
-.box-content-item img {
+.box-content-item img,
+.box-content-video {
   width: 100%;
   height: 130px;
   object-fit: cover;
@@ -1800,7 +1801,8 @@ footer {
   text-align: center;
   box-shadow: 3px 3px 0 var(--dark);
 }
-.pc-content-item img {
+.pc-content-item img,
+.pc-content-item .box-content-video {
   width: 100%;
   height: 80px;
   object-fit: cover;
